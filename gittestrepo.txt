@@ -1,0 +1,19 @@
+
+data have;
+  rowId + 1;
+  set sashelp.Class;
+run;
+
+proc print data=have;
+run;
+
+
+
+data want;
+  set have nobs=_nObs;
+  if _n_ = 1 or _n_ >= (_nObs - 4);
+run;
+
+
+proc print data=want;run;
+
